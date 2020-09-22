@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../ham/ham.css">
+</head>
+<body>
+<table>
+    <tr>
+    <td><input type="text" class="p" id="add" oninput="search(this.value)" placeholder="sửa hoặc tra sp"></td>
+        <td><input type="button" value="add Sản Phẩm" onclick="pushList()"></td>
+        <td><input type="button" value="add Giá Sản Phẩm" onclick="pushPrice()"></td>
+        <td><input type=button onclick="inlist()"ondblclick="inlistb()"  value="list sản phẩm"></td>
+    </tr>
+
+    <tr>
+        <td id="out"></td>
+    </tr>
+</table>
+<script>
+array=[' Rượu Macallan',
+    ' Rượu Glenfiddich',
+    ' Rượu Chivas Regal',
+   '  Johnnie Walker',
+   '  Hennessy Cognac XO'
+    ]
+price=[17000,25000,16000,20000,23000 ]
+
+function inlist() {
+    let p =''
+    for (i=0;i<array.length;i++){
+        c = i
+        console.log(c)
+        p= p+ ' <tr>'+  '<td> '+i+'</td>' + '<td>'  +array[i] +'</td>' +'<td>'+price[i]+'</td>'+'<td>'+'USD'+'</td>'+'<td><input type="button" value="xóa sp" onclick="deletecc(c)"></td>' + '</tr>'
+    }
+    document.getElementById('out').innerHTML='<table class="t">'+p+'</table>'
+}
+function inlistb() {
+    document.getElementById('out').innerHTML= ' '
+}
+function pushList() {
+    let b = document.getElementById('add').value;
+    array.push(b)
+    document.getElementById('add').value = ''
+    document.getElementById('out').innerHTML='ban vừa thêm '+b
+}
+function pushPrice() {
+    let a = document.getElementById('add').value;
+    price.push(a)
+    document.getElementById('add').value = ''
+    document.getElementById('out').innerHTML='ban vừa thêm '+b}
+
+function deleteList() {
+c= document.getElementById('add').value;
+alert('bạn vừa xóa '+ array[c])
+    array.splice(c,1)
+    price.splice(c,1)
+}
+function search(d) {
+
+    let p =''
+    for (i=0;i<array.length;i++){
+        if ((d==array[i])||(d==price[i])||(d==i)){
+            p= p+ ' <tr>'+  '<td> '+i+'</td>' + '<td>'  +array[i] +'</td>' +'<td>'+price[i]+'</td>'+ '<td>' +'USD'+  '</td>' + '</tr>'
+            document.getElementById('out').innerHTML='<table class="t">'+p+'</table>'
+        }
+    }
+
+}
+function deletecc(o) {
+    array.splice(o,1)
+    price.splice(o,1)
+}
+
+
+</script>
+
+</body>
+</html>
