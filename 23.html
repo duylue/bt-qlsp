@@ -12,6 +12,7 @@
         <td><input type="button" value="add Sản Phẩm" onclick="pushList()"></td>
         <td><input type="button" value="add Giá Sản Phẩm" onclick="pushPrice()"></td>
         <td><input type=button onclick="inlist()"ondblclick="inlistb()"  value="list sản phẩm"></td>
+        </td>'+'<td><input type="button" value="xóa sp" onclick="deleteList()"></td>
     </tr>
 
     <tr>
@@ -31,7 +32,7 @@ function inlist() {
     let p =''
     for (i=0;i<array.length;i++){
         c = i
-        console.log(c)
+        console.log(c)//xem hộ e chỗ  này
         p= p+ ' <tr>'+  '<td> '+i+'</td>' + '<td>'  +array[i] +'</td>' +'<td>'+price[i]+'</td>'+'<td>'+'USD'+'</td>'+'<td><input type="button" value="xóa sp" onclick="deletecc(c)"></td>' + '</tr>'
     }
     document.getElementById('out').innerHTML='<table class="t">'+p+'</table>'
